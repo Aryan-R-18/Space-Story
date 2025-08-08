@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server';
 import { buildPrompt } from '@/lib/promptBuilder';
 import { callGemini } from '@/lib/geminiClient';
 import { moderateText } from '@/lib/moderation';
-import gTTS from 'gtts';
+
+import gTTS from 'gtts'; // ⬅️ Ignore type errors for now
 
 export async function POST(req: Request) {
   try {
@@ -30,7 +31,6 @@ export async function POST(req: Request) {
 
     // Map your UI "voice" options to actual gTTS language codes (and maybe accents later)
     const language = 'en'; // English for all voices
-    // In the future, you could use: const language = voiceMap[voice] || 'en';
 
     // Convert text to speech using gTTS
     const tts = new gTTS(storyText, language);
@@ -38,7 +38,7 @@ export async function POST(req: Request) {
 
     await new Promise<void>((resolve, reject) => {
       tts.stream()
-        .on('data', (chunk) => audioChunks.push(chunk))
+        .on('data', (chunk) => audioChunks.push(chunk)) // or (chunk: Buffer)
         .on('end', () => resolve())
         .on('error', (err) => reject(err));
     });
