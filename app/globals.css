@@ -24,3 +24,40 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+@keyframes gloss {
+  0%   { transform: translateY(-20%);}
+  100% { transform: translateY(80%);}
+}
+.animate-gloss { animation: gloss 6s linear infinite alternate;}
+
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.7; transform: scale(1);}
+  50% { opacity: 1; transform: scale(1.12);}
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(-10px);}
+}
+.animate-pulse-slow { animation: pulse-slow 3s infinite; }
+.animate-float { animation: float 2.5s ease-in-out infinite; }
+
+@keyframes gloss {
+  0%   { transform: translateY(-16%);}
+  100% { transform: translateY(80%);}
+}
+.animate-gloss { animation: gloss 7s linear infinite alternate; }
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.7; transform: scale(1);}
+  50% { opacity: 1; transform: scale(1.14);}
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(-12px);}
+}
+.animate-pulse-slow { animation: pulse-slow 3s infinite; }
+.animate-float { animation: float 2.8s ease-in-out infinite; }
+
